@@ -13,15 +13,21 @@ PIZARRAP es una aplicación web en desarrollo. Actualmente, las imágenes, nombr
 - CSS
 - JavaScript
 - React
+- PHP.
+- mariaDB.
 
 ---
 
 ## 🔧 Funcionalidades por implementar
 
-- [ ] Sistema de registro e inicio de sesión de usuarios.
-- [ ] Conexión a una base de datos para almacenar comentarios y usuarios.
+- [x] Sistema de registro e inicio de sesión de usuarios.
+- [x] Creación de una base de datos para almacenar comentarios y usuarios.
+- [ ] Conexión a la base de datos.
+- [ ] Estructurar una API REST.
+- [ ] Consumir la API REST.
 - [ ] Backend para generar contenido dinámicamente.
 - [ ] CRUD de publicaciones.
+- [ ] Implementar medias queries para un diseño responsive.
 
 ---
 
@@ -31,9 +37,6 @@ Este proyecto se encuentra en **fase de desarrollo**. Las funciones visibles act
 
 ---
 
-## 📅 Próxima actualización esperada
-
-Agregado de backend con manejo de usuarios y publicaciones. Posible uso de Express y MongoDB o MySQL.
 
 
 

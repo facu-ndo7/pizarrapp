@@ -5,25 +5,34 @@ import Login from "./componentes/Login.jsx";
 import Register from "./componentes/Register.jsx";
 import { useState } from "react";
 
+
 function App() {
   const [showAddMessage, setShowAddMessage] = useState(false);
   const [register, setRegister] = useState(false);
+  const [isRegistered, setIsRegistered] = useState(
+    localStorage.getItem("estado") === "registrado"
+  );
 
   return (
     <>
-      
-      {register
-        ? <Register change={() => setRegister(false)} />
-        : <Login change={() => setRegister(true)} />
-      }
+      {isRegistered ? (
+        <>
+          <button className="message-add" onClick={() => setShowAddMessage(true)}>Message</button>
 
+          <Message />
+          <Message />
 
-      {/* <button className="message-add" onClick={() => setShowAddMessage(true)}> Message </button>
-
-      <Message />
-      <Message />
-
-      {showAddMessage && (<AddMessage onClose={() => setShowAddMessage(false)} /> )}  */}
+          {showAddMessage && (
+            <AddMessage onClose={() => setShowAddMessage(false)} />
+          )}
+        </>
+      ) : (
+        register ? (
+          <Register change={() => setRegister(false)} onRegister={() => setIsRegistered(true)} />
+        ) : (
+          <Login change={() => setRegister(true)} onLogin={() => setIsRegistered(true)} />
+        )
+      )}
     </>
   );
 }

@@ -1,13 +1,18 @@
-<?php 
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
+<?php
+require_once "methodPost.php"; //$data
+require_once "db.php"; //$conexion
 
-if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-    http_response_code(200);
-    exit();
+
+if ($data) {
+    $name = $data->userName;
+    $email = $data->userEmail;
+    $password = $data->userPassword;
+
+    $insercion = $conexion->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
+
+    $insercion->bind_param("sss", $name, $email, $password);
+
+    if ($insercion->execute()){
+        echo "BIEN AHIII";
+    }
 }
-
-$info = file_get_contents("php://input");
-
-?>
